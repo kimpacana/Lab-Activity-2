@@ -1,18 +1,14 @@
-public class Vehicle {
-
-    private String brand;
-    private String model;
-    private int year;
+public abstract class Vehicle {
+    protected final String brand;
+    protected final String model;
+    protected final int year;
+    private double totalKm;
 
     public Vehicle(String brand, String model, int year) {
         this.brand = brand;
         this.model = model;
-
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-        } else {
-            this.year = 2026;
-        }
+        this.year = year;
+        this.totalKm = 0;
     }
 
     public String getBrand() {
@@ -27,26 +23,35 @@ public class Vehicle {
         return year;
     }
 
-    public boolean setYear(int year) {
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-            return true;
-        }
-
-        return false;
+    public double getTotalKm() {
+        return totalKm;
     }
+
+    protected String fullName() {
+        return brand + " " + model;
+    }
+
+    // Runtime polymorphism: every subclass must provide its own version
+    public abstract void startEngine();
 
     public void displayInfo() {
-        System.out.println("Brand: " + brand);
-        System.out.println("Model: " + model);
-        System.out.println("Year: " + year);
+        System.out.println("[" + year + "] " + fullName());
     }
 
-    public int calculateAge() {
-        return 2026 - year;
+    // Compile-time polymorphism: three overloads of drive()
+    public void drive(int km) {
+        totalKm += km;
+        System.out.println(fullName() + " travelled " + km + " km.");
     }
 
-    public boolean isVintage() {
-        return calculateAge() > 25;
+    public void drive(int km, String destination) {
+        totalKm += km;
+        System.out.println(fullName() + " headed to " + destination + " (" + km + " km).");
+    }
+
+    public void drive(int km, String destination, boolean highway) {
+        totalKm += km;
+        String road = highway ? "via the highway" : "via local roads";
+        System.out.println(fullName() + " went to " + destination + " " + road + " (" + km + " km).");
     }
 }
