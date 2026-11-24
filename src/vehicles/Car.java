@@ -16,6 +16,26 @@ public class Car extends Vehicle implements Serviceable {
     }
 
     @Override
+    public void moveForward() {
+        System.out.println(getBrand() + " " + getModel() + " (Car) moves forward.");
+    }
+
+    @Override
+    public void moveReverse() {
+        System.out.println(getBrand() + " " + getModel() + " (Car) moves in reverse, backing up slowly.");
+    }
+
+    @Override
+    public void turnLeft() {
+        System.out.println(getBrand() + " " + getModel() + " (Car) turns left.");
+    }
+
+    @Override
+    public void turnRight() {
+        System.out.println(getBrand() + " " + getModel() + " (Car) turns right.");
+    }
+
+    @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Type: Car, Doors: " + doors);
