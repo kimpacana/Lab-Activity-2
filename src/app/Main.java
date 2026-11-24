@@ -1,11 +1,11 @@
 package app;
 
-import vehicles.Vehicle;
+import contracts.Serviceable;
+import devices.Printer;
 import vehicles.Car;
 import vehicles.Motorcycle;
 import vehicles.Truck;
-import contracts.Serviceable;
-import devices.Printer;
+import vehicles.Vehicle;
 
 public class Main {
 
@@ -19,6 +19,7 @@ public class Main {
         Truck truck = new Truck("Isuzu", "Giga", 2018, 12.5);
         Printer printer = new Printer();
 
+       
         Serviceable[] serviceables = {car, motorcycle, truck, printer};
 
         System.out.println("=== Service (Serviceable[]) ===");
@@ -28,12 +29,17 @@ public class Main {
 
         System.out.println();
 
+       
         Vehicle[] vehicles = {car, motorcycle, truck};
 
         System.out.println("=== Vehicles (Vehicle[]) ===");
         for (Vehicle v : vehicles) {
             v.displayInfo();
             v.move();
+            v.moveForward();
+            v.turnLeft();
+            v.turnRight();
+            v.moveReverse();
             System.out.println();
         }
     }
