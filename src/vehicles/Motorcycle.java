@@ -16,6 +16,26 @@ public class Motorcycle extends Vehicle implements Serviceable {
     }
 
     @Override
+    public void moveForward() {
+        System.out.println(getBrand() + " " + getModel() + " (Motorcycle) moves forward.");
+    }
+
+    @Override
+    public void moveReverse() {
+        System.out.println(getBrand() + " " + getModel() + " (Motorcycle) is walked backward by the rider.");
+    }
+
+    @Override
+    public void turnLeft() {
+        System.out.println(getBrand() + " " + getModel() + " (Motorcycle) leans and turns left.");
+    }
+
+    @Override
+    public void turnRight() {
+        System.out.println(getBrand() + " " + getModel() + " (Motorcycle) leans and turns right.");
+    }
+
+    @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Type: Motorcycle, Engine: " + engineCC + " cc");
