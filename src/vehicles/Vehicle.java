@@ -27,5 +27,14 @@ public abstract class Vehicle {
         System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
     }
 
+   
     public abstract void move();
+
+    public abstract void moveForward();
+
+    public abstract void moveReverse();
+
+    public abstract void turnLeft();
+
+    public abstract void turnRight();
 }
